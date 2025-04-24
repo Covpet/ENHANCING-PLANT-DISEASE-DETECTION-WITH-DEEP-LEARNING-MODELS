@@ -40,9 +40,14 @@ Focus Crops: Cassava and Maize
 - Healthy
 
 - Leaf Beetle
+  
 
 - Leaf Blight
 
 - Leaf Spot
+  
 
 - Streak Virus
+
+  ![image](https://github.com/user-attachments/assets/a906edfa-510f-425b-a057-5140417a7bb8)
+
