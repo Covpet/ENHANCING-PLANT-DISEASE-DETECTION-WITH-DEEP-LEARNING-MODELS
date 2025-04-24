@@ -67,7 +67,6 @@ Focus Crops: Cassava and Maize
 - Leaf Spot
 - ![image](https://github.com/user-attachments/assets/f9e12942-80f8-4567-b8a3-ecebbbc326a0)
 
-  
 
 - Streak Virus
 ![image](https://github.com/user-attachments/assets/54aacf74-ff52-4750-8d46-db99cc3bf16c)
@@ -80,6 +79,26 @@ Focus Crops: Cassava and Maize
 
 Evaluated over 10, 20, and 30 epochs
 
+## Compilation:
+
+Optimizer: Adam
+
+Loss Function: Categorical Crossentropy
+
+Metrics: Accuracy, classification report and confusion matrix
+
+## Training Setup:
+
+Epochs Tested: 10, 20, 30
+
+Callback: ModelCheckpoint to save the best model based on validation loss
+
+Batch Size: 32
+
+Input Image Size: 150x150 pixels
+
+Data Augmentation: Included (rescale, rotation, zoom, shift, flip)
+
 ## VGG16 (Transfer Learning)
 
 Pretrained on ImageNet
@@ -88,13 +107,83 @@ Custom classifier added
 
 Fine-tuned using early stopping
 
+## Architecture Overview:
+
+Base Model: VGG16 (without top layers, include_top=False)
+
+Input Shape: (150, 150, 3)
+
+Freezing: All VGG16 layers frozen during training
+
+## Custom Top Layers:
+
+GlobalAveragePooling2D
+
+Dense(512, ReLU)
+
+Dropout(0.5)
+
+Dense(final classification layer with softmax)
+
+## Compilation:
+
+Optimizer: Adam
+
+Loss Function: Categorical Crossentropy
+
+Metrics: Accuracy, classification report, confusion matrix
+
+## Training Strategy:
+
+Epochs Tested: 10, 20, 30
+
+Callbacks:
+
+ModelCheckpoint: Saves best model (based on validation loss)
+
+EarlyStopping: Stops training early to prevent overfitting
+
+Patience: 5 epochs for early stopping
+
 ## MobileNetV2 (Transfer Learning)
 
 Lightweight model for fast inference
 
 Transfer learning with added dense layers
 
-## Hybrid Model
+## Architecture Overview:
+
+Base Model: MobileNetV2 (pretrained on ImageNet)
+
+Input Shape: (150, 150, 3)
+
+Frozen Layers: All base layers are frozen to preserve pretrained features
+
+## Custom Top Layers:
+
+GlobalAveragePooling2D
+
+Dense(128, ReLU)
+
+Dropout(0.5)
+
+Dense(output, softmax)
+
+## Compilation:
+
+Optimizer: Adam
+
+Loss Function: Categorical Crossentropy
+
+Metrics: Accuracy, classification report and confusion matrix
+
+## Training Strategy:
+
+Epochs Evaluated: 10, 20, 30
+
+Callback: ModelCheckpoint to retain the best model based on validation loss
+
+### Hybrid Model
 
 Custom ensemble combining:
 
@@ -105,6 +194,48 @@ EfficientNetB3
 MobileNetV2
 
 Outputs merged via feature concatenation and processed through dense layers
+
+## Components Combined:
+
+ResNet50 – Deep residual network known for handling vanishing gradients
+
+EfficientNetB3 – Scalable model that balances performance and efficiency
+
+MobileNetV2 – Lightweight architecture optimized for speed and mobility
+
+## Architecture Overview:
+
+hared input tensor: (150, 150, 3)
+
+Each backbone extracts deep features via GlobalAveragePooling2D
+
+Outputs are concatenated and passed through:
+
+BatchNormalization (stabilizes learning)
+
+Dense(512, ReLU) → Dropout(0.5)
+
+Dense(256, ReLU) → Dropout(0.3)
+
+Final Dense(num_classes, softmax) for classification
+
+## Compilation:
+
+Optimizer: AdamW (adaptive decay)
+
+Loss Function: Categorical Crossentropy
+
+Metrics: Accuracy
+
+ Training Setup:
+ 
+Epochs Evaluated: 10, 20, 30
+
+## Callbacks:
+
+EarlyStopping: Monitors validation loss with patience of 7
+
+ReduceLROnPlateau: Dynamically reduces learning rate if plateauing
 
 ### Final Model Performance (30 Epochs)
 
@@ -117,6 +248,14 @@ VGG16 | 75%
 MobileNetV2 | 80%
 
 Hybrid | 88% ✅ Best
+
+## Highlights:
+
+Outperformed individual CNNs and pretrained models
+
+Achieved a well-balanced tradeoff between depth, speed, and precision
+
+Excellent generalization due to diverse backbone features
 
 ### Features
 
@@ -145,3 +284,50 @@ Hybrid | 88% ✅ Best
 Dataset split: 80% training, 10% validation, 10% testing
 
 Early stopping and checkpoint callbacks implemented for optimal model selection
+
+## Testing & User Interaction
+
+This project goes beyond training and evaluation by allowing users to interact directly with the model and test predictions in two ways:
+
+1.  Interactive Console Prediction
+   
+Users can test the model by entering a label name (e.g., mosaic, healthy, fall armyworm), and the system randomly selects an image from the dataset under that label. The model predicts the class, displays the image, and calculates accuracy in real time.
+
+## Features:
+
+- Random sample-based testing
+
+- Immediate feedback with prediction confidence
+
+- Tracks accuracy across user inputs
+
+- Stops automatically if accuracy falls below 80%
+
+2.  Image Prediction from URL
+   
+- Users can paste an image URL (e.g., from Google Images), and the model will:
+
+- Download the image
+
+- Resize and preprocess it
+
+- Predict the plant disease class
+
+- Display the image with prediction and confidence score
+
+## Inputs:
+
+- URL to an image
+
+- Optional: actual label (for manual comparison)
+
+## Outputs:
+
+- Predicted class
+
+- Confidence score (%)
+
+- Image display with annotation
+
+These tools make the model hands-on, making it easier for farmers, researchers, or students to test the classifier directly on their own inputs.
+
