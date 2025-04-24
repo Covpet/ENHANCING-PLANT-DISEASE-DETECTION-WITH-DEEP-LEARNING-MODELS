@@ -26,25 +26,43 @@ Focus Crops: Cassava and Maize
 
 
 - Mosaic
+- ![image](https://github.com/user-attachments/assets/74501546-a9ec-45e6-a788-4ac42ce8642f)
+
 
 - Brown Spot
+- ![image](https://github.com/user-attachments/assets/2761ae0a-6d3f-402f-8154-d592b1d0cebd)
+
 
 - Green Mite
+- ![image](https://github.com/user-attachments/assets/3f38c0ee-a076-4826-baca-e37964c31100)
+
 
 - Healthy (renamed with a capital 'H' to distinguish from maize)
+- ![image](https://github.com/user-attachments/assets/d12776af-ccda-4464-9562-87ba8ff7cdf9)
+
 
 ### Maize - 7 Classes:
 
 - Fall Armyworm
+- ![image](https://github.com/user-attachments/assets/e0e7d260-73f0-44fe-918b-10e3f509d019)
+
 
 - Grasshopper
+- ![image](https://github.com/user-attachments/assets/1d5a8d80-db2e-427b-bd33-cba7505c0764)
+
 
 - Healthy
+- ![image](https://github.com/user-attachments/assets/c3ba76ba-3265-45c2-8ea9-f1bdd69a330c)
+
 
 - Leaf Beetle
+- ![image](https://github.com/user-attachments/assets/2dce8960-ddd0-4e44-bbad-cbd67ec873c7)
+
   
 
 - Leaf Blight
+- ![image](https://github.com/user-attachments/assets/96ed7cde-0d37-486a-9e76-e15e9cadbb3e)
+
 
 - Leaf Spot
   
