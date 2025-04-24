@@ -187,7 +187,7 @@ Epochs Evaluated: 10, 20, 30
 
 Callback: ModelCheckpoint to retain the best model based on validation loss
 
-### Hybrid Model
+## Hybrid Model
 
 Custom ensemble combining:
 
