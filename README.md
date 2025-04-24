@@ -13,11 +13,9 @@ Total Images:
 
 Raw: 24,881
 
-Augmented: 102,976
-
 Crops Included: Cashew, Cassava, Maize, Tomato (CCMT)
 
-Focus Crops: Cassava and Maize
+Focus Crops: Cassava (7508) and Maize  (5389)
 
 ### Cassava - 5 Classes:
 
@@ -70,6 +68,12 @@ Focus Crops: Cassava and Maize
 
 - Streak Virus
 ![image](https://github.com/user-attachments/assets/54aacf74-ff52-4750-8d46-db99cc3bf16c)
+
+##   Cleaning Technique
+
+- class weighing: ability of the system to recognize the particular class of images 
+
+- Data augmentation: making sure all images are in same sizes before applying any model
 
 ### Models Used
 
