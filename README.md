@@ -22,6 +22,8 @@ Focus Crops: Cassava and Maize
 ### Cassava - 5 Classes:
 
 - Bacterial Blight
+- ![image](https://github.com/user-attachments/assets/5ef3b97d-236f-4a98-a28a-4812c4925bb6)
+
 
 - Mosaic
 
@@ -49,5 +51,4 @@ Focus Crops: Cassava and Maize
 
 - Streak Virus
 
-  ![image](https://github.com/user-attachments/assets/a906edfa-510f-425b-a057-5140417a7bb8)
 
