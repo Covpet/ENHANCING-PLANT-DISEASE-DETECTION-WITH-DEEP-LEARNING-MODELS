@@ -65,8 +65,83 @@ Focus Crops: Cassava and Maize
 
 
 - Leaf Spot
+- ![image](https://github.com/user-attachments/assets/f9e12942-80f8-4567-b8a3-ecebbbc326a0)
+
   
 
 - Streak Virus
+![image](https://github.com/user-attachments/assets/54aacf74-ff52-4750-8d46-db99cc3bf16c)
 
+### Models Used
 
+ ## CNN (Custom)
+ 
+3-layer CNN trained from scratch
+
+Evaluated over 10, 20, and 30 epochs
+
+## VGG16 (Transfer Learning)
+
+Pretrained on ImageNet
+
+Custom classifier added
+
+Fine-tuned using early stopping
+
+## MobileNetV2 (Transfer Learning)
+
+Lightweight model for fast inference
+
+Transfer learning with added dense layers
+
+## Hybrid Model
+
+Custom ensemble combining:
+
+ResNet50
+
+EfficientNetB3
+
+MobileNetV2
+
+Outputs merged via feature concatenation and processed through dense layers
+
+### Final Model Performance (30 Epochs)
+
+Model | Test Accuracy
+
+CNN | 81%
+
+VGG16 | 75%
+
+MobileNetV2 | 80%
+
+Hybrid | 88% ✅ Best
+
+### Features
+
+- Data Preprocessing: Cleaned corrupted images, normalized input
+
+- Augmentation: Random flips, rotations, zoom, and shifts
+
+- Visualization: Confusion matrices, performance curves, class distributions
+
+- Evaluation: Accuracy, Precision, Recall, F1-score across models & epochs
+
+### How to Use
+
+- Clone this repository
+
+- Upload dataset to Google Drive (path: /MyDrive/Raw Data/CCMT Dataset)
+
+- Run the notebook in Google Colab
+
+- View model performance and modify architecture or hyperparameters as needed
+
+### Notes
+
+“Healthy” class for cassava renamed to "Healthy" to avoid overlap with maize's "healthy"
+
+Dataset split: 80% training, 10% validation, 10% testing
+
+Early stopping and checkpoint callbacks implemented for optimal model selection
